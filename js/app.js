@@ -1,58 +1,58 @@
-// Base de datos simulada de familias investigadas
+// Base de datos de la investigación genealógica de San José de Mayo (1783)
 const familiasData = [
   {
-    apellido: "Álvarez de Toledo",
-    concejo: "Concejo de Gijón",
+    apellido: "Muñiz Fernández (Línea Directa)",
+    concejo: "La Piñera, Concejo de Morcín",
     anio: "1783",
-    descripcion: "Llegados en la expedición del navío San Sebastián. Se asentaron en la zona norte del solar asignado para la nueva villa.",
-    documentos: 2
+    oficio: "Labrador",
+    integrantes: "Manuel Antonio Muñiz (35) y Serafina Fernández (35). Hijos: José (11) [Línea Antepasada Directa], Manuela (9), Manuel (7), María (4).",
+    descripcion: "Padres de Manuel: Pedro Muñiz y Sevastiana Hernández. Arribaron en la expedición fundacional. Manuel se desempeñaba como labrador en La Piñera.",
+    documentos: 4,
+    destacado: true
   },
   {
-    apellido: "Fernández de Oviedo",
-    concejo: "Concejo de Oviedo",
-    anio: "1784",
-    descripcion: "Registrados en los primeros padrones de pobladores dedicados a las labores agrícolas y de abasto.",
-    documentos: 3
-  },
-  {
-    apellido: "González de Quirós",
-    concejo: "Concejo de Quirós",
+    apellido: "Fernández (Línea Agregada)",
+    concejo: "La Piñera, Concejo de Morcín",
     anio: "1783",
-    descripcion: "Familias vinculadas a la ganadería inicial y estructuración de los primeros solares urbanos.",
-    documentos: 1
+    oficio: "Poblador soltero",
+    integrantes: "José Fernández (20 años), primo hermano de Serafina Fernández.",
+    descripcion: "Viajó integrado a la unidad familiar de Manuel Antonio Muñiz en calidad de soltero en la nómina de pobladores de 1783.",
+    documentos: 2,
+    destacado: false
   },
   {
-    apellido: "Valdés y Noreña",
-    concejo: "Concejo de Avilés",
-    anio: "1785",
-    descripcion: "Comerciantes y marinos mercantes que establecieron rutas comerciales fluviales hacia Montevideo.",
-    documentos: 4
-  },
-  {
-    apellido: "Rodríguez de Pravia",
-    concejo: "Concejo de Pravia",
+    apellido: "Muñiz (Otras Ramas Pobladoras)",
+    concejo: "Principado de Asturias",
     anio: "1783",
-    descripcion: "Pioneros fundadores presentes en el reparto de tierras dispuesto por los comisionados reales.",
-    documentos: 2
+    oficio: "Pobladores fundadores",
+    integrantes: "Familias Muñiz registradas en la nómina de 40 familias.",
+    descripcion: "Pobladores portadores del apellido Muñiz en la expedición original. En proceso de análisis documental para confirmar o descartar parentesco colateral.",
+    documentos: 1,
+    destacado: false
   },
   {
-    apellido: "Llanes y Cangas",
-    concejo: "Concejo de Llanes",
-    anio: "1786",
-    descripcion: "Familias marineras integradas posteriormente al tejido productivo josefino.",
-    documentos: 1
+    apellido: "Fernández (Otras Ramas Pobladoras)",
+    concejo: "Principado de Asturias",
+    anio: "1783",
+    oficio: "Pobladores fundadores",
+    integrantes: "Familias Fernández registradas en el contingente de 1783.",
+    descripcion: "Registros parroquiales y de embarque en revisión para cotejar posibles enlaces de consanguinidad con Serafina y José Fernández.",
+    documentos: 1,
+    destacado: false
   }
 ];
 
 // Función para renderizar las tarjetas en el DOM
 function renderFamilias(data) {
   const grid = document.getElementById('familiasGrid');
+  if (!grid) return;
+  
   grid.innerHTML = '';
 
   if (data.length === 0) {
     grid.innerHTML = `
       <div class="col-span-full text-center py-12 text-gray-400">
-        No se encontraron familias con ese criterio de búsqueda.
+        No se encontraron registros con ese criterio de búsqueda.
       </div>
     `;
     return;
@@ -60,60 +60,71 @@ function renderFamilias(data) {
 
   data.forEach(fam => {
     const card = document.createElement('div');
-    card.className = "bg-gray-800/50 border border-gray-700/60 rounded-2xl p-6 hover:border-astur-gold/50 transition-all group";
+    const borderClass = fam.destacado ? 'border-astur-gold/80 bg-astur-blue/10' : 'border-gray-700/60 bg-gray-800/50';
+    
+    card.className = `${borderClass} border rounded-2xl p-6 hover:border-astur-gold transition-all group relative overflow-hidden`;
+    
     card.innerHTML = `
-      <div class="flex justify-between items-start mb-4">
+      ${fam.destacado ? '<div class="absolute top-0 right-0 bg-astur-gold text-gray-950 font-extrabold text-[10px] uppercase px-3 py-1 rounded-bl-xl tracking-wider">Línea Directa</div>' : ''}
+      <div class="flex justify-between items-start mb-3">
         <div>
           <h3 class="text-xl font-bold text-white group-hover:text-astur-gold transition-colors">${fam.apellido}</h3>
-          <p class="text-xs text-gray-400">Origen: ${fam.concejo}</p>
+          <p class="text-xs text-astur-gold/90 font-medium">${fam.concejo}</p>
         </div>
         <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-900/40 text-blue-300 border border-blue-700/50">${fam.anio}</span>
       </div>
-      <p class="text-sm text-gray-300 mb-4 line-clamp-3">
+      
+      <p class="text-xs text-gray-400 font-semibold mb-2">Oficio: <span class="text-gray-200 font-normal">${fam.oficio}</span></p>
+      <p class="text-xs text-gray-400 font-semibold mb-3">Integrantes: <span class="text-gray-300 font-normal">${fam.integrantes}</span></p>
+      
+      <p class="text-sm text-gray-300 mb-4 leading-relaxed">
         ${fam.descripcion}
       </p>
+      
       <div class="pt-4 border-t border-gray-700/50 flex justify-between items-center text-xs text-gray-400">
-        <span>${fam.documentos} Documentos vinculados</span>
-        <span class="text-astur-gold group-hover:translate-x-1 transition-transform flex items-center gap-1 font-medium">Ver detalles &rarr;</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="file-text" class="w-3.5 h-3.5 text-astur-gold"></i> ${fam.documentos} Registros vinculados</span>
+        <span class="text-astur-gold group-hover:translate-x-1 transition-transform flex items-center gap-1 font-medium cursor-pointer">Ver expediente &rarr;</span>
       </div>
     `;
     grid.appendChild(card);
   });
+
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
 }
 
-// Inicializar al cargar la página
+// Inicialización
 document.addEventListener('DOMContentLoaded', () => {
-  // Renderizar todas las familias al inicio
   renderFamilias(familiasData);
 
-  // Configurar buscador en tiempo real
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       const query = e.target.value.toLowerCase();
       const filtradas = familiasData.filter(fam => 
         fam.apellido.toLowerCase().includes(query) || 
-        fam.concejo.toLowerCase().includes(query)
+        fam.concejo.toLowerCase().includes(query) ||
+        fam.integrantes.toLowerCase().includes(query) ||
+        fam.descripcion.toLowerCase().includes(query)
       );
       renderFamilias(filtradas);
     });
   }
 
-  // Manejar envío del formulario de contacto
   const contactForm = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       contactForm.reset();
-      formSuccess.classList.remove('hidden');
-      setTimeout(() => {
-        formSuccess.classList.add('hidden');
-      }, 5000);
+      if (formSuccess) {
+        formSuccess.classList.remove('hidden');
+        setTimeout(() => formSuccess.classList.add('hidden'), 5000);
+      }
     });
   }
 
-  // Inicializar iconos de Lucide si están disponibles
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
