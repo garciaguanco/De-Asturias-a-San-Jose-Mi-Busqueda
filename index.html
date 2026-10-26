@@ -63,6 +63,7 @@
           <a href="#investigacion" class="px-4 py-2 text-sm font-medium rounded-full text-gray-300 hover:text-white hover:bg-gray-800 transition-all">La Búsqueda</a>
           <a href="#fundacion" class="px-4 py-2 text-sm font-medium rounded-full text-gray-300 hover:text-white hover:bg-gray-800 transition-all">Fundación y Origen</a>
           <a href="#familias" class="px-4 py-2 text-sm font-medium rounded-full text-gray-300 hover:text-white hover:bg-gray-800 transition-all">Familias</a>
+          <a href="#galeria" class="px-4 py-2 text-sm font-medium rounded-full text-gray-300 hover:text-white hover:bg-gray-800 transition-all">Archivo Visual</a>
           <a href="#contacto" class="px-4 py-2 text-sm font-medium rounded-full text-gray-300 hover:text-white hover:bg-gray-800 transition-all">Contacto</a>
         </nav>
 
@@ -110,6 +111,7 @@
   <section id="investigacion" class="py-20 bg-gray-950/50 border-y border-gray-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
         
         <!-- Texto explicativo -->
         <div class="lg:col-span-7">
@@ -399,6 +401,66 @@
       <!-- Contenedor dinámico de Tarjetas -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="familiasGrid">
         <!-- Se rellenará automáticamente mediante JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN ARCHIVO VISUAL / GALERÍA HISTÓRICA -->
+  <section id="galeria" class="py-20 bg-gray-950/60 border-t border-gray-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-astur-gold font-semibold uppercase tracking-wider text-sm block mb-2">Archivo Visual</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">De Asturias a la Fundación de San José</h2>
+        <p class="text-gray-300">
+          Un recorrido visual por las etapas clave de la expedición de 1783: desde las raíces en el concejo de Morcín hasta el trazado de la villa en la Banda Oriental.
+        </p>
+      </div>
+
+      <!-- Grilla de Imágenes -->
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta 1: Asturias -->
+        <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl overflow-hidden group hover:border-astur-gold transition-all">
+          <div class="h-64 overflow-hidden relative">
+            <img src="images/asturias-vida.jpg" alt="Vida rural en Asturias" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-gray-950/80 text-astur-gold px-3 py-1 rounded-full text-xs font-semibold">1783</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">La Vida en Asturias (Morcín)</h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              El entorno original de la familia Muñiz en la parroquia de La Piñera: labradores arraigados a la tierra y a las tradiciones de las montañas asturianas antes de emprender la travesía atlántica.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Montevideo -->
+        <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl overflow-hidden group hover:border-astur-gold transition-all">
+          <div class="h-64 overflow-hidden relative">
+            <img src="images/montevideo-llegada.jpg" alt="Arribo a la bahía de Montevideo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-gray-950/80 text-astur-gold px-3 py-1 rounded-full text-xs font-semibold">Mayo 1783</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">Arribo a la Bahía de Montevideo</h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Tras navegar a bordo del navío San Sebastián, los pobladores desembarcan en el puerto rioplatense tras el repliegue del frustrado proyecto de colonización patagónica.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Fundación y Vidal -->
+        <div class="bg-gray-800/40 border border-gray-700/50 rounded-2xl overflow-hidden group hover:border-astur-gold transition-all">
+          <div class="h-64 overflow-hidden relative">
+            <img src="images/fundacion-vidal.jpg" alt="Fundación y traza del damero con Eusebio Vidal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute top-3 right-3 bg-gray-950/80 text-astur-gold px-3 py-1 rounded-full text-xs font-semibold">Junio 1783</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">El Trazado del Damero con Vidal</h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Manuel Muñiz junto al Teniente de Dragones Eusebio Vidal, planificando sobre el terreno los solares, chacras y estancias que darían vida definitiva a la Villa de San José.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
