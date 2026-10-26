@@ -98,6 +98,27 @@ function renderFamilias(data) {
 document.addEventListener('DOMContentLoaded', () => {
   renderFamilias(familiasData);
 
+  // Lógica del Botón Expandir/Ocultar detalles históricos
+  const toggleExpandBtn = document.getElementById('toggleExpandBtn');
+  const expandableContent = document.getElementById('expandableContent');
+  const expandIcon = document.getElementById('expandIcon');
+  const expandBtnText = document.getElementById('expandBtnText');
+
+  if (toggleExpandBtn && expandableContent) {
+    toggleExpandBtn.addEventListener('click', () => {
+      const isHidden = expandableContent.classList.contains('hidden');
+      if (isHidden) {
+        expandableContent.classList.remove('hidden');
+        expandIcon.style.transform = 'rotate(180deg)';
+        expandBtnText.textContent = 'Ocultar detalles históricos';
+      } else {
+        expandableContent.classList.add('hidden');
+        expandIcon.style.transform = 'rotate(0deg)';
+        expandBtnText.textContent = 'Ver más detalles históricos (52 familias y pobladores)';
+      }
+    });
+  }
+
   // Buscador
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
