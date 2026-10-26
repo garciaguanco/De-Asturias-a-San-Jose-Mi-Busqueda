@@ -158,7 +158,7 @@
     </div>
   </section>
 
-  <!-- NUEVA SECCIÓN: REGLAMENTO DE TIERRAS, DISTRIBUCIÓN Y EL ENIGMA "MARAGATO" -->
+  <!-- SECCIÓN: REGLAMENTO DE TIERRAS, DISTRIBUCIÓN Y EL ENIGMA "MARAGATO" -->
   <section id="fundacion" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -256,21 +256,132 @@
   <section id="familias" class="py-20 bg-gray-950/50 border-t border-gray-800/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- INTRODUCCIÓN HISTÓRICA DE LA EXPEDICIÓN -->
-      <div class="max-w-4xl mb-12 bg-gray-800/30 border border-gray-700/60 p-8 rounded-3xl relative overflow-hidden">
+      <!-- INTRODUCCIÓN HISTÓRICA CON BOTÓN DE EXPANSIÓN -->
+      <div class="max-w-4xl mx-auto mb-12 bg-gray-800/30 border border-gray-700/60 p-8 rounded-3xl relative overflow-hidden">
         <div class="absolute -right-10 -bottom-10 text-gray-700/10 pointer-events-none">
           <i data-lucide="anchor" class="w-64 h-64"></i>
         </div>
         <span class="text-astur-gold font-semibold uppercase tracking-wider text-sm block mb-2">Contexto Documental</span>
         <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">De la Patagonia frustrada a la fundación de San José (1783)</h2>
-        <div class="space-y-3 text-gray-300 text-sm sm:text-base leading-relaxed">
+        <div class="space-y-3 text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
           <p>
-            Las familias que integran este catálogo formaron parte del movimiento migratorio que zarpó originalmente de España (en navíos como el <em>San Sebastián</em>) para colonizar las costas patagónicas. Tras el repliegue del sur, recalaron en Montevideo y fundaron la villa de <strong>San José de Mayo</strong>.
+            Las familias que integran este catálogo formaron parte del movimiento migratorio que zarpó originalmente de España (en navíos como el <em>San Sebastián</em>) para colonizar las costas patagónicas. Tras el repliegue del sur, recalaron en Montevideo y fundaron la villa de San José de Mayo.
           </p>
           <p class="text-xs text-astur-gold font-medium pt-2">
             Fuente documental de referencia: Registros y padrones históricos recopilados por Alberto Jones Brown y Juan Alejandro Apolant.
           </p>
         </div>
+
+        <!-- BOTÓN DE EXPANSIÓN -->
+        <button id="toggleExpandBtn" class="flex items-center gap-2 bg-astur-blue hover:bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all shadow-md">
+          <i data-lucide="chevron-down" id="expandIcon" class="w-4 h-4 transition-transform"></i>
+          <span id="expandBtnText">Ver más detalles históricos (52 familias y pobladores)</span>
+        </button>
+
+        <!-- CONTENIDO OCULTO QUE SE MUESTRA AL EXPANDIR -->
+        <div id="expandableContent" class="hidden mt-6 pt-6 border-t border-gray-700/60 space-y-8 text-gray-300 text-sm sm:text-base leading-relaxed">
+          
+          <div>
+            <h3 class="text-lg font-bold text-astur-gold mb-3">I. El Reglamento de Tierras y la Fundación Oficial</h3>
+            <p class="mb-3">El asentamiento no fue caótico ni improvisado; respondió a un estricto protocolo de ordenamiento territorial colonial dictado por el Virrey Juan José de Vértiz y ejecutado en el terreno por el Teniente de Dragones Eusebio Vidal.</p>
+            <p class="mb-3">Al llegar el 1 de junio de 1783, se implementaron las siguientes directrices y beneficios para las familias:</p>
+            <ul class="list-disc pl-5 space-y-2">
+              <li><strong>La traza urbana (El Damero):</strong> Se delineó la villa utilizando el clásico plano de cuadrícula español en torno a una Plaza Mayor (la actual Plaza de los Treinta y Tres). A cada jefe de familia se le asignó un solar (un cuarto de manzana) dentro de la planta urbana para edificar su vivienda.</li>
+              <li><strong>Las Chacras de Labranza:</strong> En las zonas inmediatamente adyacentes a la villa, regadas por el Río San José, se repartieron suertes de chacras para la agricultura de subsistencia (principalmente trigo, maíz y hortalizas).</li>
+              <li><strong>Las Estancias de Ganadería:</strong> En los campos circundantes (más alejados del centro urbano), se les otorgó una "suerte de estancia" (equivalente a unas 2.700 hectáreas de la época) para la cría de ganado vacuno y caballar.</li>
+              <li><strong>La "Ayuda de Costas" de la Corona:</strong> Como compensación por el fracaso patagónico, el Estado colonial les proveyó inicialmente herramientas de hierro (azadas, hachas, arados), bueyes para el tiro, vacas lecheras y una manutención económica temporal (vicios y raciones) hasta que la primera cosecha fuera viable.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-astur-gold mb-3">II. Las Familias Fundadoras: Origen y Apellidos</h3>
+            <p class="mb-3">La investigación demográfica clásica realizada por historiadores como Juan Alejandro Apolant (Operación Patagonia) y Alberto Jones Brown detalla que el contingente inicial que estableció la Villa estaba compuesto por 52 familias. Su distribución por regiones de origen en España era la siguiente:</p>
+            <ul class="list-disc pl-5 space-y-1 mb-4">
+              <li>43 familias Asturianas (82.7%)</li>
+              <li>5 familias Castellanas (9.6%)</li>
+              <li>3 familias Gallegas (5.8%)</li>
+              <li>1 familia Andaluza (1.9%)</li>
+            </ul>
+            
+            <h4 class="font-bold text-white mb-2">Los Primeros Pobladores Registrados</h4>
+            <p class="mb-3">A partir de los archivos de embarque corregidos y los padrones de la época, se rescatan los nombres de los jefes de hogar y solteros que formaron la primera línea de pobladores de la villa, en su inmensa mayoría procedentes de concejos asturianos (como Gijón, Oviedo, Siero, Llanes, Villaviciosa, Pravia y Grado)</p>
+
+            <div class="space-y-4 mt-4">
+              <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                <strong class="text-white block mb-1">1. La Familia Muñiz (Primera en la lista)</strong>
+                <p class="text-xs text-gray-300">Familia de Manuel Muñiz: Familia de origen asturiano que formaba parte del contingente de labradores asignados originalmente al Atlántico Sur. Tras el repliegue de la Patagonia, arribó a Montevideo y se integró plenamente al grupo de fundadores de la Villa de San José desde sus primeros momentos (mayo-junio de 1783).</p>
+              </div>
+
+              <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                <strong class="text-white block mb-1">2. El Contingente Mayoritario: Familias Asturianas (42 familias restantes)</strong>
+                <p class="text-xs text-gray-300 mb-2">Los jefes de hogar y familias provenían de concejos de las montañas y costas de Asturias (Gijón, Oviedo, Siero, Llanes, Villaviciosa, Pravia, Lena, Grado, entre otros):</p>
+                <ul class="list-disc pl-5 space-y-1 text-xs text-gray-300">
+                  <li><strong>Pedro de Tuya:</strong> Natural de San Julián de Somió (Gijón).</li>
+                  <li><strong>Isabel Peláez (Pelaes):</strong> Viuda de Francisco Carbajal, registrada con sus tres hijos (Josef, María Teresa y María Francisca).</li>
+                  <li><strong>Juan Fernández Lloredo:</strong> Labrador de la parroquia de San Pedro de Lloredo, concejo de Lena, junto a su esposa Manuela Salada.</li>
+                  <li><strong>Bartolomé Barredo:</strong> Con dos ramas y solares asignados a su descendencia en la traza original.</li>
+                  <li><strong>Miguel Mellado:</strong> Destacado en las primeras tareas agrícolas locales.</li>
+                  <li><strong>Juan de Arce:</strong> Con amplio grupo familiar a cargo.</li>
+                  <li><strong>José Santianés:</strong> Uno de los labradores más activos en la primera siembra.</li>
+                  <li><strong>Cosme Peláez:</strong> Adjudicatario de suerte de chacra junto al río.</li>
+                  <li><strong>Toribio García:</strong> Vecino fundador de la planta urbana.</li>
+                  <li><strong>Santiago Montes:</strong> Quien recibió bueyes y herramientas de la Corona.</li>
+                  <li><strong>Juan Carbajal:</strong> Establecido en los primeros solares de la villa.</li>
+                  <li><strong>Manuel Labandera:</strong> Origen de un apellido de enorme descendencia en el departamento.</li>
+                  <li><strong>Pedro Fernández:</strong> Registrado en los padrones de raciones de 1783.</li>
+                  <li><strong>Familias de apellido Hevia:</strong> (Varias ramas procedentes del centro de Asturias).</li>
+                  <li><strong>Familias de apellido Menéndez:</strong> (Labradores de tradición marítima y terrestre).</li>
+                  <li><strong>Familias de apellido Navia:</strong> Procedentes del occidente asturiano.</li>
+                  <li><strong>Familias de apellido Cuervo:</strong> Asentadas en el perímetro de chacras.</li>
+                  <li><strong>Familias de apellido Villamil:</strong> Vinculadas a las tareas de la primera capilla.</li>
+                  <li><strong>Familias de apellido Álvarez:</strong> Registradas en los censos de salud coloniales.</li>
+                  <li><strong>Familias de apellido Solano Antuña:</strong> Procedentes del concejo de Siero.</li>
+                  <li><strong>Familias de apellido Caravia:</strong> Quienes sufrieron el invierno de San Julián en la Patagonia.</li>
+                  <li><em>Nota: Las restantes familias asturianas incluyeron variantes de apellidos repetidos que sumaron las 43 familias de este bloque regional.</em></li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                <strong class="text-white block mb-1">3. Familias Castellanas (5 familias)</strong>
+                <p class="text-xs text-gray-300 mb-2">Procedentes de la meseta norte de España, principalmente de la región histórica de León:</p>
+                <ul class="list-disc pl-5 space-y-1 text-xs text-gray-300">
+                  <li><strong>Familia de Benito Pérez:</strong> Originarios de Astorga (provincia de León), cuya presencia consolidó definitivamente el apodo de "maragatos" en la villa.</li>
+                  <li>Familia de Juan González</li>
+                  <li>Familia de Manuel Antonio Alonso</li>
+                  <li>Familia de Francisco Rodríguez</li>
+                  <li>Familia de Pedro López</li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                <strong class="text-white block mb-1">4. Familias Gallegas (3 familias)</strong>
+                <p class="text-xs text-gray-300 mb-2">Labradores embarcados originalmente en el puerto de La Coruña:</p>
+                <ul class="list-disc pl-5 space-y-1 text-xs text-gray-300">
+                  <li>Familia de Antonio Suárez</li>
+                  <li>Familia de Manuel de Castro</li>
+                  <li>Familia de José de Gabriel</li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-900/50 p-4 rounded-xl border border-gray-800">
+                <strong class="text-white block mb-1">5. Familia Andaluza (1 familia)</strong>
+                <p class="text-xs text-gray-300">El componente del sur de la península que completó el padrón fundacional: Familia de Jerónimo Saborido (registrado también en algunas actas como Saburido).</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-astur-gold mb-3">III. El Enigma del Gentilicio: ¿Por qué "Maragatos"?</h3>
+            <p class="mb-3">Una de las mayores singularidades históricas de San José es que sus habitantes son llamados maragatos, a pesar de que la abrumadora mayoría de los fundadores de 1783 eran asturianos. La explicación histórica radica en dos factores:</p>
+            <ol class="list-decimal pl-5 space-y-2">
+              <li><strong>La confusión de las autoridades:</strong> En Montevideo, el funcionariado colonial y los vecinos locales llamaban genéricamente "maragatos" a todo el grupo de familias procedentes del proyecto de la Patagonia. Esto se debió a que los primeros contingentes que habían llegado a Buenos Aires años antes (1779) sí incluían grupos numerosos de la comarca de la Maragatería (León), famosos en España por ser arrieros y transportistas. El uso del término se generalizó erróneamente para designar a cualquier colono de la expedición del sur.</li>
+              <li><strong>La llegada de la familia Pérez (1784):</strong> Al año siguiente de la fundación, se incorporaron nuevas familias al campamento. Entre ellas llegó la de Benito Pérez, procedente de Astorga (la capital de la Maragatería leonesa). Su presencia activa en la comunidad terminó por consolidar de forma definitiva el apodo popular, el cual con las décadas se adoptó con orgullo y pasó a ser el gentilicio oficial de todo el departamento de San José.</li>
+            </ol>
+            <p class="mt-3 italic text-gray-400">Este trasplante humano modificó la demografía de la Banda Oriental: aquellas familias que padecieron el frío de los puertos australes terminaron encontrando su hogar definitivo en las templadas y productivas llanuras maragatas.</p>
+          </div>
+
+        </div>
+
       </div>
 
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
