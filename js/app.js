@@ -98,6 +98,7 @@ function renderFamilias(data) {
 document.addEventListener('DOMContentLoaded', () => {
   renderFamilias(familiasData);
 
+  // Buscador
   const searchInput = document.getElementById('searchInput');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
@@ -112,15 +113,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Envío AJAX del formulario a Formspree
   const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      contactForm.reset();
-      if (formSuccess) {
-        formSuccess.classList.remove('hidden');
-        setTimeout(() => formSuccess.classList.add('hidden'), 5000);
+      const data = new FormData(contactForm);
+      const action = contactForm.action;
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          alert('¡Gracias! Tu mensaje ha sido enviado exitosamente a los investigadores.');
+        } else {
+          alert('Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+        }
+      } catch (error) {
+        alert('Ocurrió un error de conexión al enviar el mensaje.');
       }
     });
   }
